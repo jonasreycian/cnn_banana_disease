@@ -1,0 +1,2 @@
+https://www.codeproject.com/Articles/1199224/Detecting-a-Drone-OpenCV-in-NET-for-Beginners-Emgu
+https://www.codeproject.com/Articles/1200395/Detecting-a-Drone-OpenCV-in-NET-for-Beginners-Em-2
