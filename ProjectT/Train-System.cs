@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using 
+using Emgu.CV.Dnn;
+using Emgu.CV.ML;
 
 namespace ProjectT
 {

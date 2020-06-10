@@ -67,13 +67,6 @@ namespace ProjectT
                 
                 Mat originalImage = new Mat(dialog.FileName, ImreadModes.Color);
                 
-
-                //if (originalImage.Height < originalImage.Width)
-                //{
-                //    WIDTH = 320;
-                //    HEIGHT = 240;
-                //}
-
                 CvInvoke.Resize(originalImage, resizedImage, new Size(WIDTH, HEIGHT), 0, 0);
 
                 pictureBoxOriginal.Image = resizedImage.Bitmap;
@@ -82,10 +75,12 @@ namespace ProjectT
                 Mat[] splitImage = resizedImage.Split();
                 Mat whiteChannel = new Mat();
                 Mat greenChannel = splitImage[1];
-                //Image<Bgr, Byte> img1 = new Image<Bgr, Byte>(resizedImage.Height, resizedImage.Width, new Bgr(0, 0, 0));
+                Image<Bgr, Byte> img1 = new Image<Bgr, Byte>(resizedImage.Height, resizedImage.Width, new Bgr(0, 0, 0));
 
-                //CvInvoke.Merge(new VectorOfMat(img1.Mat, greenChannel, img1.Mat), resizedImage);
+                resizedImage = img1.Mat;
 
+                CvInvoke.Merge(new VectorOfMat(img1.Mat, greenChannel, img1.Mat), resizedImage);
+                
                 preprocess();
             }
         }
