@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NeuralNetwork.cs" />
     <Compile Include="System-Menu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -43,7 +43,54 @@ namespace ProjectT
 
         private void button2_Click(object sender, EventArgs e)
         {
+            /***
+             * 0 0 0 -> 0
+             * 0 0 1 -> 1
+             * 0 1 0 -> 1
+             * 0 1 1 -> 0
+             * 1 0 0 -> 1
+             * 1 0 1 -> 0
+             * 1 1 0 -> 0
+             * 1 1 1 -> 1
+             ***/
 
+            // Source from https://www.youtube.com/watch?v=L_PByyJ9g-I
+            NeuralNetwork net = new NeuralNetwork(new int[] { 3, 25, 25, 1 });
+            for(int i=0; i<5000; i++)
+            {
+                net.FeedForward(new float[] { 0, 0, 0 });
+                net.BackProp(new float[] { 0 });
+
+                net.FeedForward(new float[] { 0, 0, 1 });
+                net.BackProp(new float[] { 1 });
+
+                net.FeedForward(new float[] { 0, 1, 0 });
+                net.BackProp(new float[] { 1 });
+
+                net.FeedForward(new float[] { 0, 1, 1 });
+                net.BackProp(new float[] { 0 });
+
+                net.FeedForward(new float[] { 1, 0, 0 });
+                net.BackProp(new float[] { 1 });
+
+                net.FeedForward(new float[] { 1, 0, 1 });
+                net.BackProp(new float[] { 0 });
+
+                net.FeedForward(new float[] { 1, 1, 0 });
+                net.BackProp(new float[] { 0 });
+
+                net.FeedForward(new float[] { 1, 1, 1 });
+                net.BackProp(new float[] { 1 });
+            }
+
+            Console.WriteLine(net.FeedForward(new float[] { 0, 0, 0 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 0, 0, 1 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 0, 1, 0 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 0, 1, 1 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 1, 0, 0 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 1, 0, 1 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 1, 1, 0 })[0]);
+            Console.WriteLine(net.FeedForward(new float[] { 1, 1, 1 })[0]);
         }
     }
 }
